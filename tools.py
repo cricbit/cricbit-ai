@@ -24,6 +24,16 @@ def get_table_schema(table_name: str) -> str:
             schema = cursor.fetchall()
     return schema
 
+@tool
+def get_sample_data(table_name: str) -> str:
+    """
+    Get a sample of the data from a table in the PostgreSQL database.
+    """
+    with get_db_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(f"SELECT * FROM {table_name} LIMIT 10")
+            data = cursor.fetchall()
+    return data
 
 @tool
 def execute_sql_query(sql_query: str) -> str:
