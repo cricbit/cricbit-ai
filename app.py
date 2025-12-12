@@ -5,7 +5,7 @@ from langchain_core.messages import HumanMessage
 def main():
     agent = CricketAgent()
     
-    query = "List all the scorers of the IPL 2024 Final"
+    query = "Present the scorecard for the IPL 2024 Final"
     
     initial_state = {
         "messages": [HumanMessage(content=query)],

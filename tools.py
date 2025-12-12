@@ -56,13 +56,15 @@ def execute_sql_query(sql_query: str) -> str:
             with conn.cursor() as cursor:
                 cursor.execute(sql_query)
                 results = cursor.fetchall()
+                column_names = [desc[0] for desc in cursor.description] if cursor.description else []
 
         if not results:
             return "No results found."
         
         formatted_results = []
         for row in results:
-            formatted_results.append(dict(row))
+            row_dict = dict(zip(column_names, row))
+            formatted_results.append(row_dict)
         
         return str(formatted_results)
     
