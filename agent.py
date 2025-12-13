@@ -29,7 +29,6 @@ class CricketAgent:
         builder.add_node("tools", self.tools_node)
         
         builder.set_entry_point("agent")
-       
         builder.add_conditional_edges(
             "agent",
             self.should_continue,
@@ -38,7 +37,6 @@ class CricketAgent:
                 "end": END
             }
         )
-        
         builder.add_edge("tools", "agent")
         
         self.graph = builder.compile()
