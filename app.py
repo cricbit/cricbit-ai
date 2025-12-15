@@ -15,7 +15,7 @@ def chat(message, history):
 
 demo = gr.ChatInterface(
     fn=chat,
-    title="🏏 Cricket Stats Assistant",
+    title="🏏 Ask Cricbit AI",
     examples=[
         "Who has the most centuries in ODIs?",
         "Top 5 wicket takers in Tests"

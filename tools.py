@@ -48,8 +48,8 @@ def execute_sql_query(sql_query: str) -> str:
         Query results as a formatted string
     """
     sql_query = sql_query.strip()
-    if not sql_query.upper().startswith("SELECT"):
-        return "Error: Only SELECT queries are allowed."
+    if not (sql_query.upper().startswith("SELECT") or sql_query.upper().startswith("WITH")):
+        return "Error: Only SELECT or WITH queries are allowed."
     
     try:
         with get_db_connection() as conn:
